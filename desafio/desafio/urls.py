@@ -17,8 +17,13 @@ from django import template
 from django.contrib import admin
 from django.urls import path
 from myfamily.views import my_dad
+from myfamily.views import my_mom
+from myfamily.views import my_bro
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('my_dad/',my_dad, name='template_my_dad'),
+    path('my_mom/',my_mom, name='template_my_mom'),
+    path('my_bro/',my_bro, name='template_my_bro'),
 ]
