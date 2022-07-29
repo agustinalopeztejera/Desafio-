@@ -1,31 +1,35 @@
 from multiprocessing import context
+from xmlrpc.client import NOT_WELLFORMED_ERROR
 from django.shortcuts import render
 from datetime import datetime
 from myfamily.models import Family_members
 
+
 def my_dad(request):
-    today = datetime.now()
-    my_dad = Family_members.objects.create(name = 'John Smith', 
-    age = '50', 
-    hobbies = 'playing football',
-    last_active_whapp = today)
-    context = {context}
+   
+    f = Family_members(name = 'John Smith',  age = 50,  hobbies = 'playing football')
+    f.save()
+    
+    context = {"edad":"50", "hobbies":'playing football'}
     return render(request, 'template_my_dad.html', context=context)
 
+
 def my_mom(request):
-    today = datetime.now()
-    my_mom = Family_members.objects.create(name = 'Anna Smith', 
-    age = '45', 
-    hobbies = 'knitting',
-    last_active_whapp = today)
-    context = {context}
+   
+    f = Family_members(name = 'Anna Smith',  age = 40,  hobbies = 'knitting')
+    f.save()
+    
+    
+    context = {"edad":"50", "hobbies":'knitting', }
     return render(request, 'template_my_mom.html', context=context)
 
 def my_bro(request):
-    today = datetime.now()
-    my_bro = Family_members.objects.create(name = 'Luke Smith', 
-    age = '22', 
-    hobbies = 'playing videogames',
-    last_active_whapp = today)
-    context = {context}
-    return render(request, 'template_my_mom.html', context=context)
+   
+    f = Family_members(name = 'Luke Smith',  age = 22,  hobbies = 'playing the guitar')
+    f.save()
+    
+    
+    context = {"edad":"50", "hobbies":'playing the guitar', }
+    return render(request, 'template_my_bro.html', context=context)
+
+
